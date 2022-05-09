@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/home/widgets/slider.dart';
+import 'package:flutter_motor_ui/home/widgets/slider/slider.dart';
 import 'package:flutter_motor_ui/usecases/arduino_connect.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +27,14 @@ class OutPutWidgets extends StatelessWidget {
               const Text('Ignition'),
               MySlider(
                 type: SlyderType.ignition,
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              const Text('Spark'),
+              MySlider(
+                type: SlyderType.spark,
               ),
             ],
           ),

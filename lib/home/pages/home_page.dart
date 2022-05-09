@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
 import 'package:flutter_motor_ui/home/widgets/Input_widgets.dart';
+import 'package:flutter_motor_ui/home/widgets/correct_widget/correct_output_widget.dart';
 import 'package:flutter_motor_ui/home/widgets/output_widgets.dart';
 import 'package:flutter_motor_ui/home/widgets/speedometer.dart';
 import 'package:flutter_motor_ui/settings/settings_page.dart';
@@ -13,7 +14,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: const [InputWidgets(), OutPutWidgets(), Icon(Icons.add)],
+      children: [
+        const InputWidgets(),
+        const OutPutWidgets(),
+        const Icon(Icons.add),
+        CorrectOutPutWidget()
+      ],
     ));
   }
 }

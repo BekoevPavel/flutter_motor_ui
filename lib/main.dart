@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/usecases/alldata.dart';
 import 'package:get/get.dart';
 import 'home/home.dart';
 import 'service_locator.dart';
