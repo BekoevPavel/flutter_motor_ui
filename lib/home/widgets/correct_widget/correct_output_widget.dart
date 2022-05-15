@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
 import 'package:flutter_motor_ui/home/widgets/correct_widget/correct_output_state.dart';
 import 'package:get/get.dart';
 
@@ -35,20 +36,24 @@ class CorrectOutPutWidget extends StatelessWidget {
                     'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = ');
               }),
               SizedBox(
-                  width: 200,
-                  child: TextField(
-                    onEditingComplete: () {
-                      CorrectOutputState.calculate(textControllerFunction.text);
+                width: 250,
+                child: TextField(
+                  onEditingComplete: () {
+                    CorrectOutputState.calculate(textControllerFunction.text);
 
-                      myFocusNodeFunction.unfocus();
-                    },
-                    focusNode: myFocusNodeFunction,
-                    controller: textControllerFunction,
-                    decoration: const InputDecoration(
-                      labelText: 'Функция от v *',
-                      hintText: 'Введите функцию от v',
-                    ),
-                  ))
+                    myFocusNodeFunction.unfocus();
+                  },
+                  focusNode: myFocusNodeFunction,
+                  controller: textControllerFunction,
+                  decoration: const InputDecoration(
+                    labelText: 'Функция от v *',
+                    hintText: 'Введите функцию от v',
+                  ),
+                ),
+              ),
+              Obx(
+                () => Text('v = ${CorrectOutputState.deltaTime}'),
+              ),
             ],
           )
         ],
