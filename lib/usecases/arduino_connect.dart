@@ -53,7 +53,8 @@ class ConnectToArduino {
         for (int i = 0; i < message.length; i++) {
           if (message[i] == 228) {
             speedController.setDeltaTimeSensors(
-                MathController.byteToInt([message[i + 1], message[i + 2]]));
+                MathController.byteToInt([message[i + 1], message[i + 2]]) *
+                    0.001);
           }
         }
       },

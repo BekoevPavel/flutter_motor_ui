@@ -15,7 +15,7 @@ class CorrectOutPutWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
-      width: MediaQuery.of(context).size.width / 3,
+      width: MediaQuery.of(context).size.width * 0.4,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black,
@@ -32,14 +32,19 @@ class CorrectOutPutWidget extends StatelessWidget {
           Row(
             children: [
               Obx(() {
+                if (textControllerFunction.text != '') {
+                  CorrectOutputState.calculate(textControllerFunction.text,
+                      CorrectOutputState.deltaTime.toDouble());
+                }
                 return Text(
                     'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = ');
               }),
               SizedBox(
-                width: 250,
+                width: 300,
                 child: TextField(
                   onEditingComplete: () {
-                    CorrectOutputState.calculate(textControllerFunction.text);
+                    CorrectOutputState.calculate(textControllerFunction.text,
+                        CorrectOutputState.deltaTime.toDouble());
 
                     myFocusNodeFunction.unfocus();
                   },
@@ -52,7 +57,10 @@ class CorrectOutPutWidget extends StatelessWidget {
                 ),
               ),
               Obx(
-                () => Text('v = ${CorrectOutputState.deltaTime}'),
+                () {
+                  return Text(
+                      'v = ${CorrectOutputState.deltaTime.toStringAsFixed(3)}');
+                },
               ),
             ],
           )

@@ -1,13 +1,15 @@
 import 'package:get/get.dart';
 
+import 'widgets/correct_widget/correct_output_state.dart';
+
 class SpeedometrController extends GetxController {
-  RxInt deltaTimeSensors = 0.obs;
+  RxDouble deltaTimeSensors = 0.0.obs;
   RxDouble speed = 0.0.obs;
   void startApp() {
     speed.value = 0.0;
   }
 
-  void setDeltaTimeSensors(int delta) {
+  void setDeltaTimeSensors(double delta) {
     deltaTimeSensors.value = delta;
   }
 

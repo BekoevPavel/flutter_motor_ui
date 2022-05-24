@@ -10,43 +10,41 @@ class OutPutWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _currentSliderValue = 0.0;
-    return Container(
-      child: Row(
-        children: [
-          Column(
-            children: [
-              const Text('Gas'),
-              MySlider(
-                type: SlyderType.gas,
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              const Text('Ignition'),
-              MySlider(
-                type: SlyderType.ignition,
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              const Text('Spark'),
-              MySlider(
-                type: SlyderType.spark,
-              ),
-            ],
-          ),
-          ElevatedButton(
-            child: const Text('click me'),
-            onPressed: () {
-              Get.find<ConnectToArduino>().sendToClient([3, 0]);
-              //Get.to(const SettingsPage());
-            },
-          ),
-        ],
-      ),
+    // final _currentSliderValue = 0.0;
+    return Row(
+      children: [
+        Column(
+          children: [
+            const Text('Gas'),
+            MySlider(
+              type: SlyderType.gas,
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            const Text('Ignition'),
+            MySlider(
+              type: SlyderType.ignition,
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            const Text('Spark'),
+            MySlider(
+              type: SlyderType.spark,
+            ),
+          ],
+        ),
+        ElevatedButton(
+          child: const Text('click me'),
+          onPressed: () {
+            Get.find<ConnectToArduino>().sendToClient([3, 0]);
+            //Get.to(const SettingsPage());
+          },
+        ),
+      ],
     );
   }
 }

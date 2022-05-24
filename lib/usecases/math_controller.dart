@@ -19,7 +19,7 @@ class MathController {
 
   static int byteToInt(List<int> input) {
     var byteFirst = input[0].toRadixString(2);
-    var byteLast = input[0].toRadixString(2);
+    var byteLast = input[1].toRadixString(2);
 
     return int.parse(byteFirst + byteLast, radix: 2);
   }
