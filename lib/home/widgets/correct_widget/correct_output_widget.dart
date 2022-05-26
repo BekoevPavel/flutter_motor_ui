@@ -9,10 +9,13 @@ class CorrectOutPutWidget extends StatelessWidget {
   final TextEditingController textControllerFunction =
       TextEditingController(text: '');
   final FocusNode myFocusNodeFunction = FocusNode();
-  CorrectOutPutWidget({Key? key}) : super(key: key);
+  final String name;
+  CorrectOutputState controller = CorrectOutputState();
+  CorrectOutPutWidget({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    controller.sendToArduino(name);
     return Container(
       padding: const EdgeInsets.all(16),
       width: MediaQuery.of(context).size.width * 0.4,
@@ -25,26 +28,32 @@ class CorrectOutPutWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Injection'),
-          MySlider(
-            type: SlyderType.injection,
+          Text(name),
+          Row(
+            children: [
+              MySlider(
+                correctController: controller,
+                type: name == 'Injection'
+                    ? SlyderType.injection
+                    : SlyderType.spark,
+              ),
+              ElevatedButton(onPressed: () {}, child: const Text('Cansel'))
+            ],
           ),
           Row(
             children: [
               Obx(() {
                 if (textControllerFunction.text != '') {
-                  CorrectOutputState.calculate(textControllerFunction.text,
-                      CorrectOutputState.deltaTime.toDouble());
+                  controller.correct();
                 }
                 return Text(
-                    'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = ');
+                    'Delay = f(v) = ${controller.y.toStringAsFixed(1)} = ');
               }),
               SizedBox(
                 width: 300,
                 child: TextField(
                   onEditingComplete: () {
-                    CorrectOutputState.calculate(textControllerFunction.text,
-                        CorrectOutputState.deltaTime.toDouble());
+                    controller.calculate(textControllerFunction.text);
 
                     myFocusNodeFunction.unfocus();
                   },
@@ -58,8 +67,7 @@ class CorrectOutPutWidget extends StatelessWidget {
               ),
               Obx(
                 () {
-                  return Text(
-                      'v = ${CorrectOutputState.deltaTime.toStringAsFixed(3)}');
+                  return Text('v = ${controller.x.toStringAsFixed(3)}');
                 },
               ),
             ],

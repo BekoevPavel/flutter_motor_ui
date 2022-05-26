@@ -12,12 +12,14 @@ class MySlider extends StatefulWidget {
 
   double? realValue = 0;
   double? value;
-  MySlider({
-    Key? key,
-    required this.type,
-    this.realValue,
-  }) : super(key: key) {
-    controller = SliderState(type: type);
+  MySlider(
+      {Key? key,
+      required this.type,
+      this.realValue,
+      value,
+      CorrectOutputState? correctController})
+      : super(key: key) {
+    controller = SliderState(type: type, controller: correctController);
   }
 
   @override

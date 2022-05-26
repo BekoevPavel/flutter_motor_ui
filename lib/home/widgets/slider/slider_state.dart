@@ -6,7 +6,9 @@ import 'slider.dart';
 
 class SliderState extends GetxController {
   SlyderType type;
-  SliderState({required this.type});
+  int? value;
+  CorrectOutputState? controller;
+  SliderState({required this.type, this.controller});
   void sendValue(int value) {
     if (type == SlyderType.injection) {
       Get.find<ConnectToArduino>().sendToClient([1, value.toInt(), 0]);
@@ -16,6 +18,12 @@ class SliderState extends GetxController {
   }
 
   void correctValue(double delta) {
-    CorrectOutputState.correct(delta);
+    if (controller != null) {
+      controller!.correct(delta1: delta);
+    }
+  }
+
+  void cansel() {
+    value = 50;
   }
 }

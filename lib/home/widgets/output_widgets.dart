@@ -29,14 +29,14 @@ class OutPutWidgets extends StatelessWidget {
             ),
           ],
         ),
-        Column(
-          children: [
-            const Text('Spark'),
-            MySlider(
-              type: SlyderType.spark,
-            ),
-          ],
-        ),
+        // Column(
+        //   children: [
+        //     const Text('Spark'),
+        //     MySlider(
+        //       type: SlyderType.spark,
+        //     ),
+        //   ],
+        // ),
         ElevatedButton(
           child: const Text('click me'),
           onPressed: () {

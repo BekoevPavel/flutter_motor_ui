@@ -18,7 +18,12 @@ class HomePage extends StatelessWidget {
         const InputWidgets(),
         const OutPutWidgets(),
         const Icon(Icons.add),
-        CorrectOutPutWidget()
+        CorrectOutPutWidget(
+          name: 'Injection',
+        ),
+        CorrectOutPutWidget(
+          name: 'Spark',
+        )
       ],
     ));
   }
