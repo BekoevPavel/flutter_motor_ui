@@ -1,8 +1,4 @@
-import 'package:flutter_motor_ui/home/widgets/correct_widget/correct_output_state.dart';
-import 'package:get/get.dart';
-
-import '../../../usecases/arduino_connect.dart';
-import 'slider.dart';
+part of home;
 
 class SliderState extends GetxController {
   SlyderType type;

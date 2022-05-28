@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../settings/settings_page.dart';
-import 'speedometer.dart';
+part of home;
 
 class InputWidgets extends StatelessWidget {
   const InputWidgets({Key? key}) : super(key: key);
@@ -17,13 +13,13 @@ class InputWidgets extends StatelessWidget {
               Column(
                 children: const [
                   Text('Speed'),
-                  Speedometr(),
+                  SpeedometrWidget(),
                 ],
               ),
               Column(
                 children: const [
                   Text('temperature'),
-                  Speedometr(),
+                  SpeedometrWidget(),
                 ],
               ),
             ],

@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-
-import 'widgets/correct_widget/correct_output_state.dart';
+part of usecases;
 
 class SpeedometrController extends GetxController {
   RxDouble deltaTimeSensors = 0.0.obs;

@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
-import 'package:get/get.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../../usecases/alldata.dart';
+part of home;
 
-class Speedometr extends StatelessWidget {
-  const Speedometr({Key? key}) : super(key: key);
+class SpeedometrWidget extends StatelessWidget {
+  const SpeedometrWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+part of usecases;
 
 class AllData {
   int count = 0;

@@ -1,6 +1,4 @@
-import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
-import 'package:flutter_motor_ui/usecases/math_controller.dart';
-import 'package:get/get.dart';
+part of home;
 
 class CorrectOutputState extends GetxController {
   static RxDouble y = 0.0.obs;
