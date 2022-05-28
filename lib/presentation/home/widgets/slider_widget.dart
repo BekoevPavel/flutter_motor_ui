@@ -1,18 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/home/widgets/correct_widget/correct_output_state.dart';
-import 'package:flutter_motor_ui/home/widgets/slider/slider_state.dart';
-import 'package:get/get.dart';
-import '../../../usecases/alldata.dart';
+part of home;
 
-enum SlyderType { gas, ignition, injection, spark }
-
-class MySlider extends StatefulWidget {
+class MySliderWidget extends StatefulWidget {
   final SlyderType type;
   late final SliderState controller;
 
   double? realValue = 0;
   double? value;
-  MySlider({
+  MySliderWidget({
     Key? key,
     required this.type,
     this.realValue,
@@ -21,10 +15,10 @@ class MySlider extends StatefulWidget {
   }
 
   @override
-  State<MySlider> createState() => _MySliderState();
+  State<MySliderWidget> createState() => _MySliderWidgetState();
 }
 
-class _MySliderState extends State<MySlider> {
+class _MySliderWidgetState extends State<MySliderWidget> {
   var sizes = Get.find<Sizes>();
 
   @override

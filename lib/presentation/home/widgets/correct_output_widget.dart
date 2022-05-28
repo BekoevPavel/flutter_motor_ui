@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
-import 'package:flutter_motor_ui/home/widgets/correct_widget/correct_output_state.dart';
-import 'package:get/get.dart';
-
-import '../slider/slider.dart';
+part of home;
 
 class CorrectOutPutWidget extends StatelessWidget {
   final TextEditingController textControllerFunction =
@@ -26,7 +21,7 @@ class CorrectOutPutWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('Injection'),
-          MySlider(
+          MySliderWidget(
             type: SlyderType.injection,
           ),
           Row(

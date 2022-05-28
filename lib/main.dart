@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'home/home.dart';
+
+import 'presentation/home/home.dart';
 import 'service_locator.dart';
 
 void main() {

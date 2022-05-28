@@ -1,4 +1,4 @@
-import 'package:math_expressions/math_expressions.dart';
+part of usecases;
 
 class MathController {
   static double calculate(String func, double param) {

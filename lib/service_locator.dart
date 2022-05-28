@@ -1,7 +1,5 @@
-import 'package:flutter_motor_ui/home/spedomentr_controller.dart';
-import 'package:flutter_motor_ui/usecases/alldata.dart';
-import 'package:flutter_motor_ui/usecases/arduino_connect.dart';
 import 'package:get/get.dart';
+import 'domain/usecases/usecases.dart';
 
 void initDI() {
   Get.put<ConnectToArduino>(ConnectToArduino(), permanent: true);
