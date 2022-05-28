@@ -4,7 +4,7 @@ import 'package:flutter_motor_ui/usecases/arduino_connect.dart';
 import 'package:get/get.dart';
 
 void initDI() {
-  Get.put<ConnectToArduino>(ConnectToArduino(), permanent: true);
+  //Get.put<ConnectToArduino>(ConnectToArduino(), permanent: true);
   Get.put<AllData>(AllData());
   Get.put<SpeedometrController>(SpeedometrController());
   Get.put<Sizes>(Sizes());
