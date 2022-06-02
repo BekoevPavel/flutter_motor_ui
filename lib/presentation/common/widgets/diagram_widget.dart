@@ -1,13 +1,15 @@
 part of common;
 
-class MyDiagram extends StatelessWidget {
+class DiagramWidget extends StatelessWidget {
   late final DiagramState controller;
   final double? sizeKef;
   final String xName;
   final String yName;
-  MyDiagram({Key? key, this.sizeKef, required this.xName, required this.yName})
+  DiagramWidget(
+      {Key? key, this.sizeKef, required this.xName, required this.yName})
       : super(key: key) {
     controller = DiagramState(size: sizeKef);
+    Get.find<AllData>().firstDiagramState = controller;
   }
 
   @override
