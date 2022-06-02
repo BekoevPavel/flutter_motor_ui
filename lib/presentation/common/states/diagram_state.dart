@@ -1,4 +1,4 @@
-part of diagram;
+part of common;
 
 class DiagramState extends GetxController {
   late RxDouble? size;

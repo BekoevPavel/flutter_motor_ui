@@ -8,7 +8,7 @@ import '../../domain/entities/entities.dart';
 import '../../domain/usecases/usecases.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-import '../common/diagram/diagram.dart';
+import '../common/common.dart';
 
 part 'pages/home_page.dart';
 part 'pages/settings_page.dart';
