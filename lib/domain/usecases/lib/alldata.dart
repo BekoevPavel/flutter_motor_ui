@@ -5,7 +5,7 @@ class AllData {
 }
 
 class Sizes {
-  double speedomterSize = 0.1;
+  double meterSize = 0.1;
   double gasSize = 0.3;
   double sliderInjectionKef = 2;
 }

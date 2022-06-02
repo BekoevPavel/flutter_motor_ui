@@ -8,7 +8,9 @@ class HomePage extends StatelessWidget {
     return SizedBox(
         child: Column(
       children: const [
-        // MeterWidget()
+        MeterWidget(
+          sizeKef: 0.2,
+        )
         //const InputWidgets(),
         //const OutPutWidgets(),
         //const Icon(Icons.add),

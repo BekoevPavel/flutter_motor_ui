@@ -7,8 +7,8 @@ class SpeedometrWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var sizes = Get.find<Sizes>();
     return Container(
-      width: MediaQuery.of(context).size.width * sizes.speedomterSize,
-      height: MediaQuery.of(context).size.width * sizes.speedomterSize,
+      width: MediaQuery.of(context).size.width * sizes.meterSize,
+      height: MediaQuery.of(context).size.width * sizes.meterSize,
       child: Center(
         child: Obx(() {
           var controller = Get.find<SpeedometrController>();
