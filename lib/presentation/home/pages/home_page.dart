@@ -6,16 +6,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        child: Column(
-      children: const [
-        MeterWidget(
-          sizeKef: 0.2,
-        )
-        //const InputWidgets(),
-        //const OutPutWidgets(),
-        //const Icon(Icons.add),
-        //CorrectOutPutWidget()
-      ],
-    ));
+      child: Column(
+        children: [
+          MeterWidget(
+            sizeKef: 0.1,
+            valueName: 'V',
+            maxValue: 200,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Get.find<AllData>().speedometrState?.setValue(50);
+            },
+            child: const Text('Click me'),
+          ),
+
+          //const InputWidgets(),
+          //const OutPutWidgets(),
+          //const Icon(Icons.add),
+          //CorrectOutPutWidget()
+        ],
+      ),
+    );
   }
 }

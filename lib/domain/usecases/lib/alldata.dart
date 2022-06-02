@@ -2,6 +2,8 @@ part of usecases;
 
 class AllData {
   int count = 0;
+  MeterState? speedometrState;
+  MeterState? temperatureState;
 }
 
 class Sizes {
