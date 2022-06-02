@@ -8,22 +8,10 @@ class HomePage extends StatelessWidget {
     return SizedBox(
       child: Column(
         children: [
-          MeterWidget(
-            sizeKef: 0.1,
-            valueName: 'V',
-            maxValue: 200,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Get.find<AllData>().speedometrState?.setValue(50);
-            },
-            child: const Text('Click me'),
-          ),
-
-          //const InputWidgets(),
-          //const OutPutWidgets(),
-          //const Icon(Icons.add),
-          //CorrectOutPutWidget()
+          const InputWidgets(),
+          const OutPutWidgets(),
+          const Icon(Icons.add),
+          CorrectOutPutWidget()
         ],
       ),
     );
