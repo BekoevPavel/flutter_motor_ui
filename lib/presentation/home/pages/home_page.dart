@@ -7,11 +7,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         child: Column(
-      children: [
-        const InputWidgets(),
-        const OutPutWidgets(),
-        const Icon(Icons.add),
-        CorrectOutPutWidget()
+      children: const [
+        // MeterWidget()
+        //const InputWidgets(),
+        //const OutPutWidgets(),
+        //const Icon(Icons.add),
+        //CorrectOutPutWidget()
       ],
     ));
   }
