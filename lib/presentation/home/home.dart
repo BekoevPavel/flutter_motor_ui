@@ -1,6 +1,7 @@
 library home;
 
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../../domain/entities/entities.dart';
