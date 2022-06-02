@@ -7,6 +7,8 @@ import 'dart:typed_data';
 import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
+import '../../presentation/common/common.dart';
+
 part 'lib/alldata.dart';
 part 'lib/arduino_connect.dart';
 part 'lib/math_controller.dart';
