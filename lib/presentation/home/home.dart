@@ -1,6 +1,7 @@
 library home;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_motor_ui/presentation/diagram/diagram.dart';
 import 'package:get/get.dart';
 
 import '../../domain/entities/entities.dart';

@@ -8,10 +8,15 @@ class HomePage extends StatelessWidget {
     return SizedBox(
         child: Column(
       children: [
-        const InputWidgets(),
-        const OutPutWidgets(),
-        const Icon(Icons.add),
-        CorrectOutPutWidget()
+        MyDiagram(
+          xName: 'Частота',
+          yName: 'ХЗ',
+          size: 400,
+        ),
+        //const InputWidgets(),
+        // const OutPutWidgets(),
+        // const Icon(Icons.add),
+        // CorrectOutPutWidget()
       ],
     ));
   }
