@@ -1,12 +1,14 @@
 library home;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_motor_ui/presentation/diagram/diagram.dart';
+
 import 'package:get/get.dart';
 
 import '../../domain/entities/entities.dart';
 import '../../domain/usecases/usecases.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+
+import '../common/diagram/diagram.dart';
 
 part 'pages/home_page.dart';
 part 'pages/settings_page.dart';
