@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
 import 'presentation/home/home.dart';
@@ -7,6 +8,7 @@ import 'service_locator.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initDI();
+  //debugRepaintRainbowEnabled = true;
 
   runApp(const MyApp());
 }
