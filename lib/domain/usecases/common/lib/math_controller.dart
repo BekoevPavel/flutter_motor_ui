@@ -1,4 +1,4 @@
-part of usecases;
+part of common;
 
 class MathController {
   static double calculate(String func, double param) {

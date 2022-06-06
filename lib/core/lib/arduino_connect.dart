@@ -1,6 +1,8 @@
-part of usecases;
+part of core;
 
 class ConnectToArduino {
+  MeterRepository speedpometrRepos = SpedometerRepositoryImpl();
+  DiagramRepository diagramRepos = DiagramRepositoryImpl();
   late ServerSocket server;
   Socket? socket;
   sendToClient(List<int> data) {
@@ -8,6 +10,11 @@ class ConnectToArduino {
   }
 
   ConnectToArduino() {
+    int count = 0;
+    // Timer.periodic(const Duration(seconds: 1), (timer) {
+    //   diagramRepos.addDiagramLine(count, Random().nextInt(100));
+    //   count++;
+    // });
     _call();
   }
   _call() async {
@@ -28,7 +35,7 @@ class ConnectToArduino {
     socket?.close();
   }
 
-  void _handleConnection(Socket client) {
+  Future<void> _handleConnection(Socket client) async {
     print('Connection from'
         ' ${client.remoteAddress.address}:${client.remotePort}');
 
@@ -43,6 +50,7 @@ class ConnectToArduino {
         print('message:  ${message}');
         var speedController = Get.find<SpeedometrController>();
         speedController.setSpeed(message.first.toDouble() / 5);
+        speedpometrRepos.updateMeter(data);
 
         for (int i = 0; i < message.length; i++) {
           if (message[i] == 228) {

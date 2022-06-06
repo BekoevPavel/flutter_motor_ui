@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'domain/usecases/usecases.dart';
+import 'core/core.dart';
+import 'domain/usecases/common/common.dart';
 
 void initDI() {
   //Get.put<ConnectToArduino>(ConnectToArduino(), permanent: true);

@@ -1,14 +1,14 @@
 library home;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_motor_ui/presentation/common/common.dart';
 
 import 'package:get/get.dart';
 
+import '../../core/core.dart';
 import '../../domain/entities/entities.dart';
-import '../../domain/usecases/usecases.dart';
+import '../../domain/usecases/common/common.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-
-import '../common/common.dart';
 
 part 'pages/home_page.dart';
 part 'pages/settings_page.dart';

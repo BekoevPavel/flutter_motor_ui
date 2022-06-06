@@ -16,7 +16,9 @@ class MeterWidget extends StatelessWidget {
       this.backColor})
       : super(key: key) {
     controller = MeterState(maxValue: maxValue ?? 100);
-    Get.find<AllData>().speedometrState = controller;
+
+    ///TODO
+    //Get.find<AllData>().speedometrState = controller;
   }
 
   @override

@@ -1,4 +1,4 @@
-part of usecases;
+part of common;
 
 class AllData {
   int count = 0;

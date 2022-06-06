@@ -3,13 +3,17 @@ part of common;
 class DiagramState extends GetxController {
   late RxDouble? size;
   late RxList<charts.Series<dynamic, String>> seriesList;
-  late List<DiagramLine> diagramLines;
-  DiagramState({double? size}) {
-    diagramLines = [DiagramLine(0, 0)];
-    if (size != null) {
-      this.size = RxDouble(size);
-    }
+  RxList<DiagramLine> diagramLines =
+      RxList([DiagramLine(3, 0), DiagramLine(1, 32)]);
+  DiagramState() {
+    //TODO сделать когда будет конект
+    //DiagramUseCase diagramUseCase = DiagramUseCase();
+
     seriesList = RxList(_createSampleData(diagramLines));
+    //TODO сделать когда будет конект
+    // diagramUseCase.lenght.listen((p0) {
+    //   seriesList.value = _createSampleData(diagramUseCase.diagramLines);
+    // });
   }
 
   void addDiagramLine(DiagramLine data) {

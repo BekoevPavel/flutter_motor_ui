@@ -6,7 +6,7 @@ class SpeedometrWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var sizes = Get.find<Sizes>();
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * sizes.meterSize,
       height: MediaQuery.of(context).size.width * sizes.meterSize,
       child: Center(
@@ -30,7 +30,7 @@ class SpeedometrWidget extends StatelessWidget {
                     widget: Obx(() {
                       return Text(
                         controller.speed.value.toStringAsFixed(0) + ' / 100',
-                        style: TextStyle(fontSize: 11),
+                        style: const TextStyle(fontSize: 11),
                       );
                     }))
               ],

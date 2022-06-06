@@ -1,4 +1,4 @@
-part of usecases;
+part of common;
 
 class SpeedometrController extends GetxController {
   RxDouble deltaTimeSensors = 0.0.obs;

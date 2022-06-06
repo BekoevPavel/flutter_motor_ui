@@ -3,7 +3,7 @@ library common;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../../domain/usecases/usecases.dart';
+import '../../domain/usecases/common/common.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import '../../domain/entities/entities.dart';
 

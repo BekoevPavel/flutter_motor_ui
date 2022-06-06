@@ -5,27 +5,25 @@ class InputWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Column(
-                children: const [
-                  Text('Speed'),
-                  SpeedometrWidget(),
-                ],
-              ),
-              Column(
-                children: const [
-                  Text('temperature'),
-                  SpeedometrWidget(),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        Row(
+          children: [
+            Column(
+              children: const [
+                Text('Speed'),
+                SpeedometrWidget(),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('temperature'),
+                SpeedometrWidget(),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
