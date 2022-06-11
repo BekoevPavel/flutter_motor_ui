@@ -21,7 +21,7 @@ class MySliderWidget extends StatefulWidget {
       this.value = 0,
       this.maxValue = 100})
       : super(key: key) {
-    controller = SliderState();
+    controller = SliderState(sendID);
   }
 
   @override
@@ -56,7 +56,7 @@ class _MySliderWidgetState extends State<MySliderWidget> {
                 widget.value = value;
 
                 //widget.controller.sendValue(value.toInt()); отправка на ардуино
-                widget.controller.correctValue(value);
+                widget.controller.setValue(value);
               });
             },
           ),
