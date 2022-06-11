@@ -29,6 +29,7 @@ Widget _leftBar() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MeterWidget(
+                sendID: 10,
                 sizeKef: 0.13,
                 valueName: 'ω',
                 unit: 'рад/сек',
@@ -39,6 +40,7 @@ Widget _leftBar() {
                 color: const Color.fromARGB(255, 87, 83, 83),
               ),
               MeterWidget(
+                sendID: -10,
                 sizeKef: 0.13,
                 valueName: 't',
                 unit: '°С',
@@ -49,6 +51,7 @@ Widget _leftBar() {
                 color: const Color.fromARGB(255, 87, 83, 83),
               ),
               MeterWidget(
+                sendID: -10,
                 sizeKef: 0.13,
                 valueName: 'N',
                 unit: 'кВт',
@@ -65,8 +68,10 @@ Widget _leftBar() {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SliderMeterWidget(
+                sendID: 10, // отправляю
                 sizeKef: 0.16,
                 meter: MeterWidget(
+                  sendID: -10,
                   sizeKef: (0.14),
                   valueName: 'fuel',
                   unit: 'гр',
@@ -77,7 +82,9 @@ Widget _leftBar() {
               ),
               SliderMeterWidget(
                 sizeKef: 0.16,
+                sendID: 11,
                 meter: MeterWidget(
+                  sendID: 11,
                   sizeKef: (0.14),
                   unit: 'Hm',
                   valueName: 'Мт',
@@ -183,7 +190,9 @@ Widget _rightBar(BuildContext context) {
           ),
           SliderMeterWidget(
             sizeKef: 0.16,
+            sendID: -10,
             meter: MeterWidget(
+              sendID: -10,
               sizeKef: (0.14),
               valueName: 'U',
               unit: 'Вольт',
@@ -196,6 +205,7 @@ Widget _rightBar(BuildContext context) {
             thickness: 2,
           ),
           MeterWidget(
+            sendID: -10,
             sizeKef: 0.13,
             valueName: 'U',
             unit: 'Вольт',

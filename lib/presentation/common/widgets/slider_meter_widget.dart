@@ -3,7 +3,9 @@ part of common;
 class SliderMeterWidget extends StatelessWidget {
   final double? sizeKef;
   final Widget meter;
-  const SliderMeterWidget({Key? key, this.sizeKef, required this.meter})
+  final int sendID;
+  const SliderMeterWidget(
+      {Key? key, this.sizeKef, required this.meter, required this.sendID})
       : super(key: key);
 
   @override
@@ -19,8 +21,9 @@ class SliderMeterWidget extends StatelessWidget {
         children: [
           meter,
           MySliderWidget(
-            sizeKef: ((sizeKef ?? 0.4) * 0.9),
-            type: SlyderType.gas,
+            sendID: sendID,
+            maxValue: 200,
+            sizeKef: ((sizeKef ?? 0.4) * 0.8),
             name: '',
             backColor: Colors.blueGrey[100],
             color: const Color.fromARGB(255, 87, 83, 83),

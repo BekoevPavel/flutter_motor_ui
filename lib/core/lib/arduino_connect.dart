@@ -1,7 +1,11 @@
 part of core;
 
 class ConnectToArduino {
-  MeterRepository speedpometrRepos = SpedometerRepositoryImpl();
+  List<MeterRepository> metersRepos = [
+    MeterRepositoryImpl(10),
+    MeterRepositoryImpl(11)
+  ];
+
   DiagramRepository diagramRepos = DiagramRepositoryImpl();
   late ServerSocket server;
   Socket? socket;
@@ -50,7 +54,9 @@ class ConnectToArduino {
         print('message:  ${message}');
         var speedController = Get.find<SpeedometrController>();
         speedController.setSpeed(message.first.toDouble() / 5);
-        speedpometrRepos.updateMeter(data);
+        for (final meter in metersRepos) {
+          meter.updateMeter(data);
+        }
 
         for (int i = 0; i < message.length; i++) {
           if (message[i] == 228) {

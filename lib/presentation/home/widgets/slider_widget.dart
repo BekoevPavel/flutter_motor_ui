@@ -1,25 +1,27 @@
 part of home;
 
 class MySliderWidget extends StatefulWidget {
-  final SlyderType type;
+  // final SlyderType type;
   late final SliderState controller;
   final Color? color;
   final Color? backColor;
   final double? sizeKef;
+  final int sendID;
 
-  double? realValue = 0;
   double? value;
+  final double? maxValue;
   final String? name;
   MySliderWidget(
       {Key? key,
-      required this.type,
-      this.realValue,
+      required this.sendID,
       this.name,
       this.color,
       this.backColor,
-      this.sizeKef})
+      this.sizeKef,
+      this.value = 0,
+      this.maxValue = 100})
       : super(key: key) {
-    controller = SliderState(type: type);
+    controller = SliderState();
   }
 
   @override
@@ -44,17 +46,14 @@ class _MySliderWidgetState extends State<MySliderWidget> {
             thumbColor: widget.color,
             inactiveColor: widget.backColor,
             activeColor: widget.color,
-            value: widget.type == SlyderType.injection ||
-                    widget.type == SlyderType.spark
-                ? widget.value ?? 50
-                : widget.value ?? 0,
-            max: 100,
+            value: widget.value!,
+            max: widget.maxValue!,
+
             //divisions: 5,
             label: widget.value?.round().toString(),
             onChanged: (double value) {
               setState(() {
                 widget.value = value;
-                widget.realValue = value;
 
                 //widget.controller.sendValue(value.toInt()); отправка на ардуино
                 widget.controller.correctValue(value);
@@ -62,6 +61,12 @@ class _MySliderWidgetState extends State<MySliderWidget> {
             },
           ),
         ),
+        Text(
+          'U1: ${widget.value}',
+          style: const TextStyle(
+            fontSize: 10,
+          ),
+        )
       ],
     );
   }

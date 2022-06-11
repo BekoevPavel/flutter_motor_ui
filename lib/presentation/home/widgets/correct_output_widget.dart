@@ -1,5 +1,6 @@
 part of home;
 
+//SPARK
 class CorrectOutPutWidget extends StatelessWidget {
   final TextEditingController textControllerFunction =
       TextEditingController(text: '');
@@ -32,8 +33,8 @@ class CorrectOutPutWidget extends StatelessWidget {
                 ),
               ),
               MySliderWidget(
+                sendID: 13, // SPARK
                 name: '',
-                type: SlyderType.injection,
                 sizeKef: 0.28,
               ),
             ],

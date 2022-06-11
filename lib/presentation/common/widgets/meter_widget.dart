@@ -11,8 +11,10 @@ class MeterWidget extends StatelessWidget {
   final String? title;
   final double? valueTest;
   final bool? haveBorder;
+  int sendID;
   MeterWidget(
       {Key? key,
+      required this.sendID,
       this.sizeKef,
       this.maxValue,
       this.valueName,
@@ -23,7 +25,7 @@ class MeterWidget extends StatelessWidget {
       this.valueTest,
       this.haveBorder})
       : super(key: key) {
-    controller = MeterState(maxValue: maxValue ?? 100);
+    controller = MeterState(maxValue: maxValue ?? 100, sendID: sendID);
 
     ///TODO
     //Get.find<AllData>().speedometrState = controller;

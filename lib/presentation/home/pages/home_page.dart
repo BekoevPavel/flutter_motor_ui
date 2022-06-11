@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           //   sizeKef: 0.4,
           // )
           const InputWidgets(),
-          const OutPutWidgets(),
+
           const Icon(Icons.add),
           CorrectOutPutWidget(),
           CorrectOutPutWidget()
