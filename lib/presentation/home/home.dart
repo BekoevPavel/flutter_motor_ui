@@ -19,3 +19,5 @@ part 'widgets/Input_widgets.dart';
 part 'widgets/output_widgets.dart';
 part 'widgets/speedometer_widget.dart';
 part 'widgets/slider_widget.dart';
+part 'pages/home1_page.dart';
+part 'widgets/radio_button_widget.dart';

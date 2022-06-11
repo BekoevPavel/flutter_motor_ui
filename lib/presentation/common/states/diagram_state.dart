@@ -3,8 +3,22 @@ part of common;
 class DiagramState extends GetxController {
   late RxDouble? size;
   late RxList<charts.Series<dynamic, String>> seriesList;
+  // RxList<DiagramLine> diagramLines = RxList([
+  //   DiagramLine(
+  //     60,
+  //     17,
+  //   ),
+  //   DiagramLine(
+  //     65,
+  //     200,
+  //   ),
+  //   DiagramLine(
+  //     500,
+  //     200,
+  //   )
+  // ]);
   RxList<DiagramLine> diagramLines =
-      RxList([DiagramLine(3, 0), DiagramLine(1, 32)]);
+      RxList.generate(12, (index) => DiagramLine(index * 50, 200));
   DiagramState() {
     //TODO сделать когда будет конект
     //DiagramUseCase diagramUseCase = DiagramUseCase();

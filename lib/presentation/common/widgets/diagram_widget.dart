@@ -14,8 +14,13 @@ class DiagramWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * (sizeKef ?? 0.2),
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+          border: Border.all(),
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      width: 1.4 * MediaQuery.of(context).size.width * (sizeKef ?? 0.2),
       height: MediaQuery.of(context).size.width * (sizeKef ?? 0.2),
       child: Stack(
         children: [
@@ -49,6 +54,10 @@ class _SimpleBarChart extends StatelessWidget {
       () => charts.BarChart(
         controller.seriesList.value,
         animate: animate,
+        primaryMeasureAxis: charts.NumericAxisSpec(
+            renderSpec: charts.SmallTickRendererSpec(
+                // Tick and Label styling here.
+                )),
       ),
     );
   }

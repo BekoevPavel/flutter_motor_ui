@@ -3,7 +3,12 @@ part of common;
 class DiagramUseCase {
   DiagramRepository diagramReposinoty =
       Get.find<ConnectToArduino>().diagramRepos;
-  final RxList<DiagramLine> _diagramLines = RxList([DiagramLine(0, 0)]);
+  final RxList<DiagramLine> _diagramLines = RxList([
+    DiagramLine(
+      0,
+      0,
+    )
+  ]);
 
   final RxInt _lenght = 0.obs;
 

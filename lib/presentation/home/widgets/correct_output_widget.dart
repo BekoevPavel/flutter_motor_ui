@@ -19,10 +19,24 @@ class CorrectOutPutWidget extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Injection'),
-          MySliderWidget(
-            type: SlyderType.injection,
+          const Text('Задежка зажигания'),
+          Row(
+            children: [
+              const Text(
+                'Ручной режим ',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              MySliderWidget(
+                name: '',
+                type: SlyderType.injection,
+                sizeKef: 0.28,
+              ),
+            ],
           ),
           Row(
             children: [
@@ -31,11 +45,23 @@ class CorrectOutPutWidget extends StatelessWidget {
                   CorrectOutputState.calculate(textControllerFunction.text,
                       CorrectOutputState.deltaTime.toDouble());
                 }
-                return Text(
-                    'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = ');
+                return RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                    children: [
+                      const TextSpan(
+                          text: 'Авто-режим ',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15)),
+                      TextSpan(
+                          text:
+                              'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = '),
+                    ],
+                  ),
+                );
               }),
               SizedBox(
-                width: 300,
+                width: 230,
                 child: TextField(
                   onEditingComplete: () {
                     CorrectOutputState.calculate(textControllerFunction.text,
@@ -54,7 +80,7 @@ class CorrectOutPutWidget extends StatelessWidget {
               Obx(
                 () {
                   return Text(
-                      'v = ${CorrectOutputState.deltaTime.toStringAsFixed(3)}');
+                      'v = ω = ${CorrectOutputState.deltaTime.toStringAsFixed(3)}');
                 },
               ),
             ],

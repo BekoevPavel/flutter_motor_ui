@@ -1,5 +1,6 @@
 library common;
 
+import 'package:flutter/material.dart';
 import 'package:flutter_motor_ui/core/core.dart';
 import 'package:flutter_motor_ui/domain/entities/entities.dart';
 import 'package:get/get.dart';
