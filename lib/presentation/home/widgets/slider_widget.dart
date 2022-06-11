@@ -7,6 +7,7 @@ class MySliderWidget extends StatefulWidget {
   final Color? backColor;
   final double? sizeKef;
   final int sendID;
+  final MeterWidget? meter;
 
   double? value;
   final double? maxValue;
@@ -19,7 +20,8 @@ class MySliderWidget extends StatefulWidget {
       this.backColor,
       this.sizeKef,
       this.value = 0,
-      this.maxValue = 100})
+      this.maxValue = 100,
+      this.meter})
       : super(key: key) {
     controller = SliderState(sendID);
   }
@@ -29,8 +31,6 @@ class MySliderWidget extends StatefulWidget {
 }
 
 class _MySliderWidgetState extends State<MySliderWidget> {
-  var sizes = Get.find<Sizes>();
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -42,7 +42,7 @@ class _MySliderWidgetState extends State<MySliderWidget> {
         SizedBox(
           width: (widget.sizeKef ?? 0.1) * MediaQuery.of(context).size.width,
           child: Slider(
-            divisions: 10,
+            divisions: 25,
             thumbColor: widget.color,
             inactiveColor: widget.backColor,
             activeColor: widget.color,
@@ -53,10 +53,13 @@ class _MySliderWidgetState extends State<MySliderWidget> {
             label: widget.value?.round().toString(),
             onChanged: (double value) {
               setState(() {
-                widget.value = value;
+                widget.value = value.toInt().toDouble();
 
                 //widget.controller.sendValue(value.toInt()); отправка на ардуино
                 widget.controller.setValue(value);
+                if (widget.meter != null) {
+                  widget.controller.menageMeter(widget.meter!, value.toInt());
+                }
               });
             },
           ),

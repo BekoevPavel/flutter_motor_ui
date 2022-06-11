@@ -2,10 +2,16 @@ part of common;
 
 class SliderMeterWidget extends StatelessWidget {
   final double? sizeKef;
-  final Widget meter;
+  final MeterWidget meter;
   final int sendID;
+  final int? maxValue;
+
   const SliderMeterWidget(
-      {Key? key, this.sizeKef, required this.meter, required this.sendID})
+      {Key? key,
+      this.sizeKef,
+      required this.meter,
+      required this.sendID,
+      this.maxValue})
       : super(key: key);
 
   @override
@@ -22,11 +28,12 @@ class SliderMeterWidget extends StatelessWidget {
           meter,
           MySliderWidget(
             sendID: sendID,
-            maxValue: 200,
+            maxValue: maxValue?.toDouble() ?? 100,
             sizeKef: ((sizeKef ?? 0.4) * 0.8),
             name: '',
             backColor: Colors.blueGrey[100],
             color: const Color.fromARGB(255, 87, 83, 83),
+            meter: meter,
           ),
           const Expanded(
               child: TextField(

@@ -13,3 +13,4 @@ part 'states/meter_state.dart';
 part 'widgets/diagram_widget.dart';
 part 'states/diagram_state.dart';
 part 'widgets/slider_meter_widget.dart';
+part 'states/slider_meter_state.dart';

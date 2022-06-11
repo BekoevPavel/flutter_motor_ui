@@ -70,19 +70,21 @@ Widget _leftBar() {
               SliderMeterWidget(
                 sendID: 10, // отправляю
                 sizeKef: 0.16,
+                maxValue: 210,
+
                 meter: MeterWidget(
                   sendID: -10,
                   sizeKef: (0.14),
                   valueName: 'fuel',
                   unit: 'гр',
-                  maxValue: 100,
-                  valueTest: 60,
+                  maxValue: 210,
                   title: 'Количество топлива',
                 ),
               ),
               SliderMeterWidget(
                 sizeKef: 0.16,
                 sendID: 11,
+                maxValue: 230,
                 meter: MeterWidget(
                   sendID: 11,
                   sizeKef: (0.14),

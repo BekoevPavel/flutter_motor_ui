@@ -3,7 +3,7 @@ part of home;
 class SliderState extends GetxController {
   late SendUseCase useCase;
   SliderState(this.sendID) {
-    useCase = SendUseCase(sendID);
+    //useCase = SendUseCase(sendID);
   }
   final int sendID;
   void sendValue(int value) {
@@ -17,6 +17,12 @@ class SliderState extends GetxController {
   void setValue(double newValue) {
     // TODO при отправки задержки зажигания
     CorrectOutputState.correct(newValue);
-    useCase.send(sendID, newValue.toInt());
+    //useCase.send(sendID, newValue.toInt());
+  }
+
+  void menageMeter(MeterWidget meter, int newValue) {
+    if (meter.sendID == -10) {
+      meter.controller.value.value = newValue.toDouble();
+    }
   }
 }
