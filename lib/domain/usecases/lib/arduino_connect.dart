@@ -12,8 +12,13 @@ class ConnectToArduino {
   }
   _call() async {
     print('Connect');
+<<<<<<< Updated upstream:lib/domain/usecases/lib/arduino_connect.dart
     //InternetAddress adress = InternetAddress('127.0.0.1');
     server = await ServerSocket.bind('192.168.0.2', 2400);
+=======
+    InternetAddress adress = InternetAddress('127.0.0.1');
+    server = await ServerSocket.bind('192.168.5.2', 2400);
+>>>>>>> Stashed changes:lib/usecases/arduino_connect.dart
 
     // listen for clent connections to the server
 
