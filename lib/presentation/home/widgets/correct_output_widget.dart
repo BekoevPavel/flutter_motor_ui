@@ -5,6 +5,7 @@ class CorrectOutPutWidget extends StatelessWidget {
   final TextEditingController textControllerFunction =
       TextEditingController(text: '');
   final FocusNode myFocusNodeFunction = FocusNode();
+  CorrectOutputState controller = CorrectOutputState();
   CorrectOutPutWidget({Key? key}) : super(key: key);
 
   @override
@@ -35,7 +36,8 @@ class CorrectOutPutWidget extends StatelessWidget {
               MySliderWidget(
                 sendID: 13, // SPARK
                 name: '',
-                sizeKef: 0.28,
+                sizeKef: 0.2,
+                maxValue: 60000,
               ),
             ],
           ),
@@ -43,8 +45,9 @@ class CorrectOutPutWidget extends StatelessWidget {
             children: [
               Obx(() {
                 if (textControllerFunction.text != '') {
-                  CorrectOutputState.calculate(textControllerFunction.text,
-                      CorrectOutputState.deltaTime.toDouble());
+                  controller.calculateY(
+                    textControllerFunction.text,
+                  );
                 }
                 return RichText(
                   text: TextSpan(
@@ -56,17 +59,18 @@ class CorrectOutPutWidget extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 15)),
                       TextSpan(
                           text:
-                              'Delay = f(v) = ${CorrectOutputState.y.toStringAsFixed(1)} = '),
+                              'Delay = f(v) = ${controller.y.toStringAsFixed(1)} = '),
                     ],
                   ),
                 );
               }),
               SizedBox(
-                width: 230,
+                width: 200,
                 child: TextField(
                   onEditingComplete: () {
-                    CorrectOutputState.calculate(textControllerFunction.text,
-                        CorrectOutputState.deltaTime.toDouble());
+                    controller.calculateY(
+                      textControllerFunction.text,
+                    );
 
                     myFocusNodeFunction.unfocus();
                   },
@@ -80,8 +84,7 @@ class CorrectOutPutWidget extends StatelessWidget {
               ),
               Obx(
                 () {
-                  return Text(
-                      'v = ω = ${CorrectOutputState.deltaTime.toStringAsFixed(3)}');
+                  return Text('v = ω = ${controller.x.toStringAsFixed(3)}');
                 },
               ),
             ],

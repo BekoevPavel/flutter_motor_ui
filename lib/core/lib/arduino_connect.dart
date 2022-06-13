@@ -2,8 +2,8 @@ part of core;
 
 class ConnectToArduino {
   List<MeterRepository> metersRepos = [
-    MeterRepositoryImpl(10),
-    MeterRepositoryImpl(11)
+    MeterRepositoryImpl(228),
+    MeterRepositoryImpl(229)
   ];
 
   DiagramRepository diagramRepos = DiagramRepositoryImpl();

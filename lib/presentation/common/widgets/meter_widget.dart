@@ -63,7 +63,7 @@ class MeterWidget extends StatelessWidget {
                         pointers: <GaugePointer>[
                           RangePointer(
                             //value: controller.value.value,
-                            value: valueTest ?? controller.value.value,
+                            value: controller.value.value,
                             cornerStyle: CornerStyle.bothCurve,
                             width: 0.1,
                             sizeUnit: GaugeSizeUnit.factor,
@@ -78,8 +78,7 @@ class MeterWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  (controller.value.value + (valueTest ?? 0))
-                                      .toString(),
+                                  controller.value.toStringAsFixed(3),
                                   style: TextStyle(
                                       fontSize:
                                           MediaQuery.of(context).size.width *

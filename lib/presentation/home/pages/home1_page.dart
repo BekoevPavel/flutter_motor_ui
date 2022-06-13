@@ -1,9 +1,6 @@
 part of home;
 // КОСТЫЛИ СТРАШНЫЕ !!!!!
 
-double speed = 210;
-double moment = 65;
-
 class Home1Page extends StatelessWidget {
   const Home1Page({Key? key}) : super(key: key);
 
@@ -19,6 +16,7 @@ class Home1Page extends StatelessWidget {
 }
 
 Widget _leftBar() {
+  RxDouble MOSHNOST = 0.0.obs;
   return Expanded(
     child: Container(
       color: const Color.fromARGB(197, 244, 233, 233),
@@ -29,12 +27,11 @@ Widget _leftBar() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MeterWidget(
-                sendID: 10,
+                sendID: 228,
                 sizeKef: 0.13,
                 valueName: 'ω',
                 unit: 'рад/сек',
-                maxValue: 500,
-                valueTest: speed,
+                maxValue: 50,
                 title: 'Угловая скорость',
                 backColor: Colors.blueGrey[100],
                 color: const Color.fromARGB(255, 87, 83, 83),
@@ -50,17 +47,38 @@ Widget _leftBar() {
                 backColor: Colors.blueGrey[100],
                 color: const Color.fromARGB(255, 87, 83, 83),
               ),
-              MeterWidget(
-                sendID: -10,
-                sizeKef: 0.13,
-                valueName: 'N',
-                unit: 'кВт',
-                maxValue: 120,
-                valueTest: speed * moment * 0.001,
-                title: 'Мощность',
-                backColor: Colors.blueGrey[100],
-                color: const Color.fromARGB(255, 87, 83, 83),
-              ),
+              Obx(() {
+                RxDouble speed = 0.0.obs;
+                RxDouble U = 0.0.obs;
+                final lstSpeed = Get.find<ConnectToArduino>()
+                    .metersRepos
+                    .where((element) => element.sendID == 228)
+                    .toList();
+                final lstU = Get.find<ConnectToArduino>()
+                    .metersRepos
+                    .where((element) => element.sendID == 229)
+                    .toList();
+                if (lstSpeed.isNotEmpty) {
+                  speed = lstSpeed.first.value;
+                }
+                if (lstU.isNotEmpty) {
+                  U = lstU.first.value;
+                }
+
+                MOSHNOST.value = speed.value * U.value;
+
+                return MeterWidget(
+                  sendID: -10,
+                  sizeKef: 0.13,
+                  valueName: 'N',
+                  unit: 'кВт',
+                  maxValue: 120,
+                  valueTest: MOSHNOST.value,
+                  title: 'Мощность',
+                  backColor: Colors.blueGrey[100],
+                  color: const Color.fromARGB(255, 87, 83, 83),
+                );
+              }),
             ],
           ),
           Row(
@@ -68,30 +86,29 @@ Widget _leftBar() {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SliderMeterWidget(
-                sendID: 10, // отправляю
+                sendID: 15, // отправляю
                 sizeKef: 0.16,
-                maxValue: 210,
+                maxValue: 6000,
 
                 meter: MeterWidget(
                   sendID: -10,
                   sizeKef: (0.14),
                   valueName: 'fuel',
                   unit: 'гр',
-                  maxValue: 210,
+                  maxValue: 6000,
                   title: 'Количество топлива',
                 ),
               ),
               SliderMeterWidget(
                 sizeKef: 0.16,
                 sendID: 11,
-                maxValue: 230,
+                maxValue: 255,
                 meter: MeterWidget(
-                  sendID: 11,
+                  sendID: 229,
                   sizeKef: (0.14),
                   unit: 'Hm',
                   valueName: 'Мт',
-                  maxValue: 230,
-                  valueTest: moment,
+                  maxValue: 255,
                   title: 'Тормозной момент',
                 ),
               ),
@@ -185,7 +202,9 @@ Widget _rightBar(BuildContext context) {
                 child: const Text('Пуск'),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.find<ConnectToArduino>().disconnect();
+                },
                 child: const Text('Стоп'),
               ),
             ],
