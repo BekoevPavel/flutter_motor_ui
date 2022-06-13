@@ -4,7 +4,10 @@ part of home;
 class CorrectOutPutWidget extends StatelessWidget {
   final TextEditingController textControllerFunction =
       TextEditingController(text: '');
+  final TextEditingController textControllerDelay =
+      TextEditingController(text: '');
   final FocusNode myFocusNodeFunction = FocusNode();
+  final FocusNode myFocusNodeDelay = FocusNode();
   CorrectOutputState controller = CorrectOutputState();
   CorrectOutPutWidget({Key? key}) : super(key: key);
 
@@ -37,7 +40,7 @@ class CorrectOutPutWidget extends StatelessWidget {
                 sendID: 13, // SPARK
                 name: '',
                 sizeKef: 0.2,
-                maxValue: 60000,
+                maxValue: 20,
               ),
             ],
           ),
@@ -86,6 +89,27 @@ class CorrectOutPutWidget extends StatelessWidget {
                 () {
                   return Text('v = ω = ${controller.x.toStringAsFixed(3)}');
                 },
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              const Text('Длительность зажигания: '),
+              SizedBox(
+                width: 200,
+                child: TextField(
+                  onEditingComplete: () {
+                    Get.find<ConnectToArduino>().sendToClient(
+                        [17, int.parse(textControllerDelay.text)]);
+                    myFocusNodeDelay.unfocus();
+                  },
+                  focusNode: myFocusNodeDelay,
+                  controller: textControllerDelay,
+                  decoration: const InputDecoration(
+                    labelText: 'Функция от v *',
+                    hintText: 'Введите функцию от v',
+                  ),
+                ),
               ),
             ],
           )

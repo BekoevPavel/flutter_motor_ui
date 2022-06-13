@@ -31,7 +31,7 @@ Widget _leftBar() {
                 sizeKef: 0.13,
                 valueName: 'ω',
                 unit: 'рад/сек',
-                maxValue: 50,
+                maxValue: 400,
                 title: 'Угловая скорость',
                 backColor: Colors.blueGrey[100],
                 color: const Color.fromARGB(255, 87, 83, 83),
@@ -88,14 +88,14 @@ Widget _leftBar() {
               SliderMeterWidget(
                 sendID: 15, // отправляю
                 sizeKef: 0.16,
-                maxValue: 6000,
+                maxValue: 50,
 
                 meter: MeterWidget(
                   sendID: -10,
                   sizeKef: (0.14),
                   valueName: 'fuel',
                   unit: 'гр',
-                  maxValue: 6000,
+                  maxValue: 50,
                   title: 'Количество топлива',
                 ),
               ),
@@ -203,7 +203,7 @@ Widget _rightBar(BuildContext context) {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Get.find<ConnectToArduino>().disconnect();
+                  Get.find<ConnectToArduino>().sendToClient([16, 16]);
                 },
                 child: const Text('Стоп'),
               ),

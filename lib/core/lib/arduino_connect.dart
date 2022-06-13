@@ -19,12 +19,16 @@ class ConnectToArduino {
     //   diagramRepos.addDiagramLine(count, Random().nextInt(100));
     //   count++;
     // });
+
     _call();
   }
   _call() async {
     print('Connect');
     //InternetAddress adress = InternetAddress('127.0.0.1');
     server = await ServerSocket.bind('192.168.0.2', 2400);
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      sendToClient([]);
+    });
 
     // listen for clent connections to the server
 
