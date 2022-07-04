@@ -6,8 +6,8 @@ class MeterState extends GetxController {
   final int sendID;
   MeterState({required this.maxValue, required this.sendID}) {
     //TODO сделать когда будет конект
-    //MeterUseCase meterUseCase = MeterUseCase(sendID);
-    //_value = meterUseCase.speedValue;
+    MeterUseCase meterUseCase = MeterUseCase(sendID);
+    _value = meterUseCase.speedValue;
   }
 
   void setValue(double value) {

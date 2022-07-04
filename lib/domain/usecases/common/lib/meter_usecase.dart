@@ -6,13 +6,15 @@ class MeterUseCase {
   final RxDouble _speedValue = 0.0.obs;
 
   MeterUseCase(this.sendID) {
-    MeterRepository meterRepository = Get.find<ConnectToArduino>()
+    List<MeterRepository> repositories = Get.find<ConnectToArduino>()
         .metersRepos
-        .firstWhere((element) => element.sendID == sendID);
-
-    meterRepository.value.listen((p0) {
-      _speedValue.value = p0;
-    });
+        .where((element) => element.sendID == sendID)
+        .toList();
+    if (repositories.isNotEmpty) {
+      repositories.first.value.listen((p0) {
+        _speedValue.value = p0;
+      });
+    }
   }
   RxDouble get speedValue => _speedValue;
 }

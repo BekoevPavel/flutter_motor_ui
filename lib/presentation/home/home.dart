@@ -13,11 +13,11 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 part 'pages/home_page.dart';
 part 'pages/settings_page.dart';
 part 'states/correct_output_state.dart';
-part 'states/slider_state.dart';
+part '../common/states/slider_state.dart';
 part 'widgets/correct_output_widget.dart';
 part 'widgets/Input_widgets.dart';
 
 part 'widgets/speedometer_widget.dart';
-part 'widgets/slider_widget.dart';
+part '../common/widgets/slider_widget.dart';
 part 'pages/home1_page.dart';
 part 'widgets/radio_button_widget.dart';

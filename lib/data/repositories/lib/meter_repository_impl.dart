@@ -10,15 +10,15 @@ class MeterRepositoryImpl implements MeterRepository {
   @override
   void updateMeter(Uint8List data) {
     final lst = data.toList();
-    for (int i = 0; i < lst.length; i++) {
-      if (lst[i] == sendID && sendID != 10) {
-        /// ЗНАЧЕНИЕ 1 БАЙТ
-        _value.value = lst[i + 1].toDouble();
-      } else if (lst[i] == sendID && sendID == 10) {
-        /// ЗНАЧЕНИЕ 2 БАЙТА
-        _value.value =
-            MathController.byteToInt([lst[i + 1], lst[i + 2]]).toDouble();
-      }
+    print('sendID: $sendID');
+
+    if (lst[0] == sendID && sendID != 228) {
+      /// ЗНАЧЕНИЕ 1 БАЙТ
+      _value.value = lst[1].toDouble();
+    } else if (lst[0] == sendID && sendID == 228) {
+      /// ЗНАЧЕНИЕ 2 БАЙТА
+      _value.value = (1.57 /
+          (MathController.byteToInt([lst[1], lst[2]]).toDouble() * 0.001));
     }
   }
 

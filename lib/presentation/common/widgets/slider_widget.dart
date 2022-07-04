@@ -65,7 +65,7 @@ class _MySliderWidgetState extends State<MySliderWidget> {
           ),
         ),
         Text(
-          'U1: ${widget.value}',
+          'U1: ${widget.value?.toStringAsFixed(1) ?? 100}',
           style: const TextStyle(
             fontSize: 10,
           ),
