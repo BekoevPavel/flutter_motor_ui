@@ -29,7 +29,7 @@ class SliderMeterWidget extends StatelessWidget {
           MySliderWidget(
             sendID: sendID,
             maxValue: maxValue?.toDouble() ?? 100,
-            sizeKef: ((sizeKef ?? 0.4) * 0.8),
+            sizeKef: ((sizeKef ?? 0.4) * 0.6),
             name: '',
             backColor: Colors.blueGrey[100],
             color: const Color.fromARGB(255, 87, 83, 83),

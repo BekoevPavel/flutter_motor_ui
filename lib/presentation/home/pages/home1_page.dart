@@ -87,12 +87,12 @@ Widget _leftBar() {
             children: [
               SliderMeterWidget(
                 sendID: 15, // отправляю
-                sizeKef: 0.16,
+                sizeKef: 0.12,
                 maxValue: 50,
 
                 meter: MeterWidget(
                   sendID: -10,
-                  sizeKef: (0.14),
+                  sizeKef: (0.10),
                   valueName: 'fuel',
                   unit: 'гр',
                   maxValue: 50,
@@ -100,12 +100,12 @@ Widget _leftBar() {
                 ),
               ),
               SliderMeterWidget(
-                sizeKef: 0.16,
+                sizeKef: 0.13,
                 sendID: 11,
                 maxValue: 255,
                 meter: MeterWidget(
                   sendID: 229,
-                  sizeKef: (0.14),
+                  sizeKef: (0.10),
                   unit: 'Hm',
                   valueName: 'Мт',
                   maxValue: 255,
@@ -115,7 +115,7 @@ Widget _leftBar() {
               DiagramWidget(
                 xName: 'ω',
                 yName: 'M',
-                sizeKef: 0.25,
+                sizeKef: 0.17,
               ),
             ],
           ),
@@ -138,13 +138,13 @@ Widget _leftBar() {
                     fillColor: Colors.red,
                     child: const Icon(
                       Icons.power_settings_new,
-                      size: 60.0,
+                      size: 30.0,
                     ),
                     padding: const EdgeInsets.all(15.0),
                     shape: const CircleBorder(),
                   ),
                   SizedBox(
-                    height: 100,
+                    height: 60,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
